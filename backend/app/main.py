@@ -1,13 +1,17 @@
 """FastAPI application — ChainIQ Backend (States 2–6)."""
 import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.data.store import get_store
+from app.db.database import init_db
+from app.db import repository
 from app.models.extraction import ExtractedData
 from app.pipeline.runner import run_pipeline
+from app.routers.admin import router as admin_router
 
 logging.basicConfig(
     level=logging.INFO,
@@ -18,6 +22,13 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    if os.environ.get("DATABASE_URL"):
+        logger.info("Initialising database…")
+        init_db()
+        logger.info("Database ready")
+    else:
+        logger.warning("DATABASE_URL not set — persistence disabled")
+
     logger.info("Loading DataStore…")
     store = get_store()
     logger.info(
@@ -43,6 +54,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(admin_router)
 
 
 # ------------------------------------------------------------------ #
@@ -74,5 +87,13 @@ async def pipeline_run(data: ExtractedData):
     except Exception as exc:
         logger.exception("Pipeline error for %s", data.request_id)
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+    if os.environ.get("DATABASE_URL"):
+        has_blocking = any(e.get("blocking") for e in result.get("escalations", []))
+        status = "escalated" if has_blocking else "completed"
+        try:
+            repository.upsert_request(data.request_id, status, data.model_dump(), result)
+        except Exception:
+            logger.exception("Failed to persist request %s", data.request_id)
 
     return result

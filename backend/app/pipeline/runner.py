@@ -154,28 +154,33 @@ def build_response(state: GlobalState) -> dict:
 
 
 def run_pipeline(
-    request_id: str, extracted_data: ExtractedData, store: DataStore
+    request_id: str,
+    extracted_data: ExtractedData,
+    store: DataStore,
+    start_from: str = "state2",
 ) -> dict:
     state = GlobalState(request_id=request_id, extracted_data=extracted_data)
-    logger.info("Pipeline start: %s", request_id)
+    logger.info("Pipeline start: %s (start_from=%s)", request_id, start_from)
 
     # State 2 — Validation
-    state = state2_validation.run(state, store)
-    if state.validation_completeness == "fail":
-        # Hard stop — format minimal output with escalation
-        state = state5_output.run(state, store)
-        state = state6_escalation.run(state, store)
-        return build_response(state)
+    if start_from == "state2":
+        state = state2_validation.run(state, store)
+        if state.validation_completeness == "fail":
+            state = state5_output.run(state, store)
+            state = state6_escalation.run(state, store)
+            return build_response(state)
 
     # State 3 — Policy & compliance
-    state = state3_policy.run(state, store)
-    if not state.eligible_suppliers:
-        state = state5_output.run(state, store)
-        state = state6_escalation.run(state, store)
-        return build_response(state)
+    if start_from in ("state2", "state3"):
+        state = state3_policy.run(state, store)
+        if not state.eligible_suppliers:
+            state = state5_output.run(state, store)
+            state = state6_escalation.run(state, store)
+            return build_response(state)
 
     # State 4 — Commercial evaluation & scoring
-    state = state4_commercial.run(state, store)
+    if start_from in ("state2", "state3", "state4"):
+        state = state4_commercial.run(state, store)
 
     # State 5 — Output formatting
     state = state5_output.run(state, store)

@@ -48,3 +48,5 @@ jobs:
           resourceGroup: ${{ env.RESOURCE_GROUP }}
           imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/chainiq-backend:${{ github.sha }}
           targetPort: 8000
+          environmentVariables: |
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
