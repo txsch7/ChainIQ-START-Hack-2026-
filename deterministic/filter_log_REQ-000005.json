@@ -15,7 +15,7 @@
     "title": "High-performance desktop workstation order",
     "request_text": "Need 50 desktop workstations for design and data teams. Delivery required by 2026-06-03. Budget is approximately 120 000.00 EUR.",
     "currency": "EUR",
-    "budget_amount": 1200000,
+    "budget_amount": 620000,
     "quantity": 50,
     "unit_of_measure": "device",
     "required_by_date": "2026-06-03",
@@ -37,31 +37,31 @@
       "message": "Limiting category_l1 to IT",
       "before_count": 599,
       "after_count": 311,
-      "timestamp": "2026-03-19T17:17:44.658919"
+      "timestamp": "2026-03-19T20:40:39.657321"
     },
     {
       "message": "Limiting category_l2 to Desktop Workstations",
       "before_count": 311,
       "after_count": 20,
-      "timestamp": "2026-03-19T17:17:44.688834"
+      "timestamp": "2026-03-19T20:40:39.660136"
     },
     {
       "message": "Limiting region to ['EU', 'CH']",
       "before_count": 20,
       "after_count": 12,
-      "timestamp": "2026-03-19T17:17:44.691388"
+      "timestamp": "2026-03-19T20:40:39.662527"
     },
     {
       "message": "Filtering suppliers supporting quantity 50",
       "before_count": 12,
       "after_count": 3,
-      "timestamp": "2026-03-19T17:17:44.693472"
+      "timestamp": "2026-03-19T20:40:39.664909"
     },
     {
-      "message": "Limiting to standard lead time <= 67 days and price <= 24000.00",
+      "message": "Limiting to standard lead time <= 67 days and price <= 12400.00",
       "before_count": 3,
       "after_count": 3,
-      "timestamp": "2026-03-19T17:17:44.708333"
+      "timestamp": "2026-03-19T20:40:39.681137"
     }
   ],
   "status": "success",

@@ -165,7 +165,7 @@ def run_policy_enrichment(filtered_path, policies_path, output_path, request):
     with open(output_path, "w") as f:
         json.dump({"suppliers": enriched}, f, indent=2)
 
-    print(f"Policy enrichment complete. Output written to {output_path}")
+    #print(f"Policy enrichment complete. Output written to {output_path}")
 
     return enriched
 
@@ -209,6 +209,6 @@ if __name__ == "__main__":
     run_policy_enrichment(
         "deterministic\\filtered_suppliers.json",
         "data\\policies.json",
-        f"deterministic\\enriched_suppliers{sample_request["request_id"]}.json",
+        f"deterministic\\enriched_suppliers_{sample_request["request_id"]}.json",
         sample_request
     )

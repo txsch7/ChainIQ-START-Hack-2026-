@@ -37,6 +37,7 @@ def format_supplier_output(df, request, max_lead_days):
             "preferred": preferred,
             "incumbent": incumbent,
             "pricing_tier_applied": tier_label,
+            "capacity_per_month": row.get("capacity_per_month"),
             "currency": row.get("currency"),
             "unit_price": round(row["unit_price"], 2),
             "total_price": round(row["unit_price"] * qty, 2),
@@ -215,7 +216,8 @@ def filter_pricing(request, pricing_csv_path=pricing_csv, supplier_csv_path=supp
             "quality_score",
             "risk_score",
             "esg_score",
-            "is_restricted"
+            "is_restricted", 
+            "capacity_per_month"
         ]
         ],
         on=["supplier_id", "category_l1", "category_l2"],
@@ -260,7 +262,7 @@ if __name__ == "__main__":
         "title": "High-performance desktop workstation order",
         "request_text": "Need 50 desktop workstations for design and data teams. Delivery required by 2026-06-03. Budget is approximately 120 000.00 EUR.",
         "currency": "EUR",
-        "budget_amount": 1200000,
+        "budget_amount": 620000,
         "quantity": 50,
         "unit_of_measure": "device",
         "required_by_date": "2026-06-03",
