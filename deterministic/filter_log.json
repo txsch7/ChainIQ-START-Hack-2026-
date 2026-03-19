@@ -22,38 +22,41 @@
     "preferred_supplier_mentioned": "HP Enterprise Devices",
     "incumbent_supplier": "Lenovo Commercial EU",
     "contract_type_requested": "purchase",
-    "region": "EU"
+    "region": [
+      "EU",
+      "CH"
+    ]
   },
   "steps": [
     {
       "message": "Limiting category_l1 to IT",
       "before_count": 599,
       "after_count": 311,
-      "timestamp": "2026-03-19T11:52:13.042814"
+      "timestamp": "2026-03-19T12:03:26.680315"
     },
     {
       "message": "Limiting category_l2 to Desktop Workstations",
       "before_count": 311,
       "after_count": 20,
-      "timestamp": "2026-03-19T11:52:13.047334"
+      "timestamp": "2026-03-19T12:03:26.683563"
     },
     {
-      "message": "Limiting region to EU",
+      "message": "Limiting region to ['EU', 'CH']",
       "before_count": 20,
       "after_count": 12,
-      "timestamp": "2026-03-19T11:52:13.052040"
+      "timestamp": "2026-03-19T12:03:26.720268"
     },
     {
       "message": "Filtering suppliers supporting quantity 50",
       "before_count": 12,
       "after_count": 3,
-      "timestamp": "2026-03-19T11:52:13.056025"
+      "timestamp": "2026-03-19T12:03:26.724193"
     },
     {
       "message": "Limiting to standard lead time <= 67 days and price <= 24000.00",
       "before_count": 3,
       "after_count": 3,
-      "timestamp": "2026-03-19T11:52:13.075717"
+      "timestamp": "2026-03-19T12:03:26.750690"
     }
   ],
   "status": "success",

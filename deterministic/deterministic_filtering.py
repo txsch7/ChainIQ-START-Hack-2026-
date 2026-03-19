@@ -125,7 +125,9 @@ def filter_pricing(request, pricing_csv_path=pricing_csv, supplier_csv_path=supp
 
     # 3. region
     before = df.copy()
-    df = df[df["region"] == request["region"]]
+    
+    df = df[df["region"].isin(request["region"])]
+    
     log_step(f"Limiting region to {request['region']}", before, df)
 
     if df.empty:
@@ -265,7 +267,7 @@ if __name__ == "__main__":
         "preferred_supplier_mentioned": "HP Enterprise Devices",
         "incumbent_supplier": "Lenovo Commercial EU",
         "contract_type_requested": "purchase",
-        "region": "EU"
+        "region": ["EU", "CH"]
     }
 
     # 3. Run the function
