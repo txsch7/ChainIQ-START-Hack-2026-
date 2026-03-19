@@ -41,7 +41,7 @@ jobs:
       - name: Deploy to Azure Container Apps
         uses: azure/container-apps-deploy-action@v1
         with:
-          acrName: ${{ secrets.ACR_LOGIN_SERVER }}
+          acrName: ${{ secrets.ACR_NAME }}
           containerAppName: ${{ env.CONTAINER_APP_NAME }}
           resourceGroup: ${{ env.RESOURCE_GROUP }}
           imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/chainiq-backend:${{ github.sha }}
