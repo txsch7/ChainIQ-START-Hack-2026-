@@ -138,10 +138,10 @@ def evaluate_policies(filtered_suppliers, policies, request):
         recommendation = []
 
         if restrictions:
-            recommendation.append("⚠️ Supplier is restricted")
+            recommendation.append("Supplier is restricted")
 
         if policy_result["preferred_status"]["is_preferred"]:
-            recommendation.append("✅ Preferred supplier")
+            recommendation.append("Preferred supplier")
 
         if approval:
             recommendation.append(f"Approval required: {approval['threshold_id']}")
@@ -166,6 +166,8 @@ def run_policy_enrichment(filtered_path, policies_path, output_path, request):
         json.dump({"suppliers": enriched}, f, indent=2)
 
     print(f"Policy enrichment complete. Output written to {output_path}")
+
+    return enriched
 
 
 # ---------------------------
