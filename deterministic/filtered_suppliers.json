@@ -20,8 +20,7 @@
       "quality_score": 85,
       "risk_score": 18,
       "esg_score": 68,
-      "policy_compliant": true,
-      "recommendation_note": "???"
+      "restricted": false
     },
     {
       "rank": "???",
@@ -43,8 +42,7 @@
       "quality_score": 81,
       "risk_score": 23,
       "esg_score": 69,
-      "policy_compliant": true,
-      "recommendation_note": "???"
+      "restricted": false
     },
     {
       "rank": "???",
@@ -66,8 +64,7 @@
       "quality_score": 81,
       "risk_score": 27,
       "esg_score": 64,
-      "policy_compliant": true,
-      "recommendation_note": "???"
+      "restricted": false
     }
   ]
 }

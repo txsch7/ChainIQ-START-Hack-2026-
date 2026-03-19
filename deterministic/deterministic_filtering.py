@@ -52,9 +52,8 @@ def format_supplier_output(df, request, max_lead_days):
             "quality_score": row.get("quality_score"),
             "risk_score": row.get("risk_score"),
             "esg_score": row.get("esg_score"),
-            "policy_compliant": not(row.get("is_restricted")),
+            "restricted": row.get("is_restricted")
             #"covers_delivery_country": "???", --> brauchen wir nicht, weil schon gegeben
-            "recommendation_note": "???"
         }
 
         results.append(supplier_output)
@@ -267,6 +266,11 @@ if __name__ == "__main__":
         "preferred_supplier_mentioned": "HP Enterprise Devices",
         "incumbent_supplier": "Lenovo Commercial EU",
         "contract_type_requested": "purchase",
+        "delivery_countries": [
+            "CH",
+            "DE",
+            "NL"
+            ],
         "region": ["EU", "CH"]
     }
 

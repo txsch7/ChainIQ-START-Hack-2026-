@@ -1,0 +1,200 @@
+{
+  "suppliers": [
+    {
+      "rank": "???",
+      "supplier_id": "SUP-0002",
+      "supplier_name": "HP Enterprise Devices",
+      "preferred": true,
+      "incumbent": false,
+      "pricing_tier_applied": "1-99 units",
+      "currency": "EUR",
+      "unit_price": 2673.0,
+      "total_price": 133650.0,
+      "standard_lead_time_days": 26,
+      "expedited_lead_time_days": 20,
+      "expedited_unit_price": 2886.84,
+      "expedited_total": 144342.0,
+      "selected_pricing_type": "standard",
+      "selected_unit_price": 2673.0,
+      "selected_total_price": 133650.0,
+      "quality_score": 85,
+      "risk_score": 18,
+      "esg_score": 68,
+      "restricted": false,
+      "policies": {
+        "approval": {
+          "threshold_id": "AT-003",
+          "currency": "EUR",
+          "min_amount": 100000,
+          "max_amount": 499999.99,
+          "min_supplier_quotes": 3,
+          "managed_by": [
+            "procurement"
+          ],
+          "deviation_approval_required_from": [
+            "Head of Category"
+          ]
+        },
+        "preferred_status": {
+          "is_preferred": true,
+          "policy": {
+            "supplier_id": "SUP-0002",
+            "supplier_name": "HP Enterprise Devices",
+            "category_l1": "IT",
+            "category_l2": "Desktop Workstations",
+            "region_scope": [
+              "EU",
+              "CH"
+            ],
+            "policy_note": "Preferred where commercially competitive and policy-compliant"
+          }
+        },
+        "restrictions": [],
+        "category_rules": [],
+        "geography_rules": [
+          {
+            "rule_id": "GR-001",
+            "country": "CH",
+            "rule_type": "sovereign_preference",
+            "rule_text": "Swiss data residency-sensitive cloud requests prefer sovereign or approved providers"
+          },
+          {
+            "rule_id": "GR-002",
+            "country": "DE",
+            "rule_type": "lead_time_constraint",
+            "rule_text": "Urgent end-user-device requests in Germany require delivery capability within requested deadline"
+          }
+        ],
+        "escalations": []
+      },
+      "recommendation_note": "\u2705 Preferred supplier | Approval required: AT-003"
+    },
+    {
+      "rank": "???",
+      "supplier_id": "SUP-0003",
+      "supplier_name": "Lenovo Commercial EU",
+      "preferred": false,
+      "incumbent": true,
+      "pricing_tier_applied": "1-99 units",
+      "currency": "EUR",
+      "unit_price": 2646.0,
+      "total_price": 132300.0,
+      "standard_lead_time_days": 27,
+      "expedited_lead_time_days": 21,
+      "expedited_unit_price": 2857.68,
+      "expedited_total": 142884.0,
+      "selected_pricing_type": "standard",
+      "selected_unit_price": 2646.0,
+      "selected_total_price": 132300.0,
+      "quality_score": 81,
+      "risk_score": 23,
+      "esg_score": 69,
+      "restricted": false,
+      "policies": {
+        "approval": {
+          "threshold_id": "AT-003",
+          "currency": "EUR",
+          "min_amount": 100000,
+          "max_amount": 499999.99,
+          "min_supplier_quotes": 3,
+          "managed_by": [
+            "procurement"
+          ],
+          "deviation_approval_required_from": [
+            "Head of Category"
+          ]
+        },
+        "preferred_status": {
+          "is_preferred": true,
+          "policy": {
+            "supplier_id": "SUP-0003",
+            "supplier_name": "Lenovo Commercial EU",
+            "category_l1": "IT",
+            "category_l2": "Desktop Workstations",
+            "region_scope": [
+              "EU",
+              "CH"
+            ],
+            "policy_note": "Preferred where commercially competitive and policy-compliant"
+          }
+        },
+        "restrictions": [],
+        "category_rules": [],
+        "geography_rules": [
+          {
+            "rule_id": "GR-001",
+            "country": "CH",
+            "rule_type": "sovereign_preference",
+            "rule_text": "Swiss data residency-sensitive cloud requests prefer sovereign or approved providers"
+          },
+          {
+            "rule_id": "GR-002",
+            "country": "DE",
+            "rule_type": "lead_time_constraint",
+            "rule_text": "Urgent end-user-device requests in Germany require delivery capability within requested deadline"
+          }
+        ],
+        "escalations": []
+      },
+      "recommendation_note": "\u2705 Preferred supplier | Approval required: AT-003"
+    },
+    {
+      "rank": "???",
+      "supplier_id": "SUP-0008",
+      "supplier_name": "Computacenter Devices",
+      "preferred": false,
+      "incumbent": false,
+      "pricing_tier_applied": "1-99 units",
+      "currency": "EUR",
+      "unit_price": 2565.0,
+      "total_price": 128250.0,
+      "standard_lead_time_days": 27,
+      "expedited_lead_time_days": 18,
+      "expedited_unit_price": 2770.2,
+      "expedited_total": 138510.0,
+      "selected_pricing_type": "standard",
+      "selected_unit_price": 2565.0,
+      "selected_total_price": 128250.0,
+      "quality_score": 81,
+      "risk_score": 27,
+      "esg_score": 64,
+      "restricted": false,
+      "policies": {
+        "approval": {
+          "threshold_id": "AT-003",
+          "currency": "EUR",
+          "min_amount": 100000,
+          "max_amount": 499999.99,
+          "min_supplier_quotes": 3,
+          "managed_by": [
+            "procurement"
+          ],
+          "deviation_approval_required_from": [
+            "Head of Category"
+          ]
+        },
+        "preferred_status": {
+          "is_preferred": false
+        },
+        "restrictions": [],
+        "category_rules": [],
+        "geography_rules": [
+          {
+            "rule_id": "GR-001",
+            "country": "CH",
+            "rule_type": "sovereign_preference",
+            "rule_text": "Swiss data residency-sensitive cloud requests prefer sovereign or approved providers"
+          },
+          {
+            "rule_id": "GR-002",
+            "country": "DE",
+            "rule_type": "lead_time_constraint",
+            "rule_text": "Urgent end-user-device requests in Germany require delivery capability within requested deadline"
+          }
+        ],
+        "escalations": []
+      },
+      "recommendation_note": "Approval required: AT-003"
+    }
+  ]
+}
