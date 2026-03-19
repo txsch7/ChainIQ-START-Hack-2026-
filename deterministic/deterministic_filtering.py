@@ -36,15 +36,15 @@ def format_supplier_output(df, request, max_lead_days):
             "preferred": preferred,
             "incumbent": incumbent,
             "pricing_tier_applied": tier_label,
-
-            "unit_price_eur": round(row["unit_price"], 2),
-            "total_price_eur": round(row["unit_price"] * qty, 2),
+            "currency": row.get("currency"),
+            "unit_price": round(row["unit_price"], 2),
+            "total_price": round(row["unit_price"] * qty, 2),
 
             "standard_lead_time_days": int(row["standard_lead_time_days"]),
             "expedited_lead_time_days": int(row["expedited_lead_time_days"]),
 
-            "expedited_unit_price_eur": round(row["expedited_unit_price"], 2),
-            "expedited_total_eur": round(row["expedited_unit_price"] * qty, 2),
+            "expedited_unit_price": round(row["expedited_unit_price"], 2),
+            "expedited_total": round(row["expedited_unit_price"] * qty, 2),
 
             "selected_pricing_type": pricing_type,
             "selected_unit_price": round(applied_price, 2),
@@ -127,7 +127,7 @@ def filter_pricing(request, pricing_csv_path=pricing_csv, supplier_csv_path=supp
     before = df.copy()
     
     df = df[df["region"].isin(request["region"])]
-    
+
     log_step(f"Limiting region to {request['region']}", before, df)
 
     if df.empty:
