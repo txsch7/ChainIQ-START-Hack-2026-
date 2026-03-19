@@ -5,11 +5,12 @@ from datetime import datetime
 def format_supplier_output(df, request, max_lead_days):
     qty = request["quantity"]
     budget_per_unit = request["budget_amount"] / qty
-
+    
     results = []
 
     for _, row in df.iterrows():
-
+        preferred = request["preferred_supplier_mentioned"]==row["supplier_name"]
+        incumbent = request["incumbent_supplier"]==row["supplier_name"]
         # Determine which pricing was applied
         if (
             row["standard_lead_time_days"] <= max_lead_days and
@@ -28,8 +29,8 @@ def format_supplier_output(df, request, max_lead_days):
             "rank": "???",
             "supplier_id": row["supplier_id"],
             "supplier_name": row.get("supplier_name", "UNKNOWN"),  # if not in CSV
-            "preferred": "??",
-            "incumbent": "??",
+            "preferred": preferred,
+            "incumbent": incumbent,
             "pricing_tier_applied": tier_label,
 
             "unit_price_eur": round(row["unit_price"], 2),
@@ -47,8 +48,8 @@ def format_supplier_output(df, request, max_lead_days):
             "quality_score": row.get("quality_score"),
             "risk_score": row.get("risk_score"),
             "esg_score": row.get("esg_score"),
-            "policy_compliant": "???",
-            "covers_delivery_country": "???",
+            "policy_compliant": not(row.get("is_restricted")),
+            #"covers_delivery_country": "???", --> brauchen wir nicht, weil schon gegeben
             "recommendation_note": "???"
         }
 
@@ -207,7 +208,8 @@ def filter_pricing(pricing_csv_path, supplier_csv, request, output_path="determi
             "supplier_name",
             "quality_score",
             "risk_score",
-            "esg_score"
+            "esg_score",
+            "is_restricted"
         ]
         ],
         on=["supplier_id", "category_l1", "category_l2"],
@@ -260,7 +262,7 @@ if __name__ == "__main__":
         "quantity": 50,
         "unit_of_measure": "device",
         "required_by_date": "2026-06-03",
-        "preferred_supplier_mentioned": "",
+        "preferred_supplier_mentioned": "HP Enterprise Devices",
         "incumbent_supplier": "Lenovo Commercial EU",
         "contract_type_requested": "purchase",
         "region": "EU"
