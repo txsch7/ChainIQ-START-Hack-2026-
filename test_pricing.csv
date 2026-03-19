@@ -1,0 +1,5 @@
+supplier_name,category_l1,category_l2,region,min_quantity,max_quantity,standard_lead_time_days,unit_price,expedited_lead_time_days,expedited_unit_price
+Alpha Corp,Electronics,Components,North America,10,1000,14,5.0,5,8.0
+Beta Ltd,Electronics,Components,North America,50,500,7,4.5,3,7.0
+Gamma Inc,Electronics,Components,Europe,10,1000,10,6.0,5,9.0
+Delta Co,Furniture,Chairs,North America,1,100,5,50.0,2,75.0
