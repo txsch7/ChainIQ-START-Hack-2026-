@@ -1,0 +1,17 @@
+meta {
+  name: Pipeline Run (Minimal)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/pipeline/run
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "request_id": "REQ-002"
+  }
+}
