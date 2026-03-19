@@ -8,7 +8,9 @@ COPY pyproject.toml .
 RUN uv pip install --system -e .
 
 COPY app/ ./app/
-COPY ../data/ ./data/
+
+# data/ is in backend/; config.py resolves DATA_DIR to /data
+COPY data/ /data/
 
 EXPOSE 8000
 
