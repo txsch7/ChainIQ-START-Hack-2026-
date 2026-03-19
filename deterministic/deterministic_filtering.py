@@ -2,6 +2,10 @@ import pandas as pd
 import json
 from datetime import datetime
 
+pricing_csv = "data\pricing.csv"
+
+suppliers_csv = "data\suppliers.csv"
+
 def format_supplier_output(df, request, max_lead_days):
     qty = request["quantity"]
     budget_per_unit = request["budget_amount"] / qty
@@ -57,9 +61,9 @@ def format_supplier_output(df, request, max_lead_days):
 
     return results
 
-def filter_pricing(pricing_csv_path, supplier_csv, request, output_path="deterministic\\filtered_suppliers.json", log_path="deterministic\\filter_log.json"):
+def filter_pricing(request, pricing_csv_path=pricing_csv, supplier_csv_path=suppliers_csv, output_path="deterministic\\filtered_suppliers.json", log_path="deterministic\\filter_log.json"):
     df = pd.read_csv(pricing_csv_path)
-    suppliers_df = pd.read_csv(supplier_csv)
+    suppliers_df = pd.read_csv(supplier_csv_path)
 
     log = {
         "request": request,
@@ -236,12 +240,8 @@ def filter_pricing(pricing_csv_path, supplier_csv, request, output_path="determi
 
 # --- TEST BLOCK ---
 if __name__ == "__main__":
-    # 1. Create a dummy CSV file for testing
-    test_csv = "data\pricing.csv"
 
-    suppliers_csv = "data\suppliers.csv"
-
-    # 2. Define a sample request
+    # 1. Define a sample request
     sample_request = {
         "request_id": "REQ-000005",
         "created_at": "2026-03-27T08:01:00Z",
@@ -270,7 +270,7 @@ if __name__ == "__main__":
 
     # 3. Run the function
     print("Running filter_pricing...")
-    results = filter_pricing(test_csv, suppliers_csv, sample_request)
+    results = filter_pricing(sample_request)
 
     if results:
         print(f"Success! Found {len(results)} suppliers.")
