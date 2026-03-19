@@ -3,7 +3,9 @@ name: Deploy Backend to Azure Container Apps
 on:
   push:
     branches: [backend, main]
-    paths: ["backend/**"]
+    paths:
+      - "backend/**"
+      - ".github/workflows/deploy-backend.yml"
 
 env:
   CONTAINER_APP_NAME: chainiq-backend
