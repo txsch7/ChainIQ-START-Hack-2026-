@@ -207,6 +207,6 @@ if __name__ == "__main__":
     run_policy_enrichment(
         "deterministic\\filtered_suppliers.json",
         "data\\policies.json",
-        "deterministic\\enriched_suppliers.json",
+        f"deterministic\\enriched_suppliers{sample_request["request_id"]}.json",
         sample_request
     )

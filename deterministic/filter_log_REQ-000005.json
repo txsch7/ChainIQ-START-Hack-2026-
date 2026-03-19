@@ -37,31 +37,31 @@
       "message": "Limiting category_l1 to IT",
       "before_count": 599,
       "after_count": 311,
-      "timestamp": "2026-03-19T14:17:10.688047"
+      "timestamp": "2026-03-19T17:17:44.658919"
     },
     {
       "message": "Limiting category_l2 to Desktop Workstations",
       "before_count": 311,
       "after_count": 20,
-      "timestamp": "2026-03-19T14:17:10.696303"
+      "timestamp": "2026-03-19T17:17:44.688834"
     },
     {
       "message": "Limiting region to ['EU', 'CH']",
       "before_count": 20,
       "after_count": 12,
-      "timestamp": "2026-03-19T14:17:10.703757"
+      "timestamp": "2026-03-19T17:17:44.691388"
     },
     {
       "message": "Filtering suppliers supporting quantity 50",
       "before_count": 12,
       "after_count": 3,
-      "timestamp": "2026-03-19T14:17:10.707848"
+      "timestamp": "2026-03-19T17:17:44.693472"
     },
     {
       "message": "Limiting to standard lead time <= 67 days and price <= 24000.00",
       "before_count": 3,
       "after_count": 3,
-      "timestamp": "2026-03-19T14:17:10.718078"
+      "timestamp": "2026-03-19T17:17:44.708333"
     }
   ],
   "status": "success",

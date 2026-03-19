@@ -33,6 +33,7 @@ def format_supplier_output(df, request, max_lead_days):
             "rank": "???",
             "supplier_id": row["supplier_id"],
             "supplier_name": row.get("supplier_name", "UNKNOWN"),  # if not in CSV
+            "region": row.get("region"),
             "preferred": preferred,
             "incumbent": incumbent,
             "pricing_tier_applied": tier_label,
@@ -276,7 +277,7 @@ if __name__ == "__main__":
 
     # 3. Run the function
     print("Running filter_pricing...")
-    results = filter_pricing(sample_request)
+    results = filter_pricing(sample_request, output_path=f"deterministic\\filtered_suppliers_{sample_request["request_id"]}.json", log_path=f"deterministic\\filter_log_{sample_request["request_id"]}.json")
 
     if results:
         print(f"Success! Found {len(results)} suppliers.")
