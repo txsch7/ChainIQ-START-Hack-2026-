@@ -1,0 +1,38 @@
+meta {
+  name: Admin - Resume Request
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/admin/requests/REQ-000001/resume
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "start_from": "state3",
+    "extracted_data": {
+      "request_id": "REQ-000001",
+      "created_at": "2026-03-19T10:00:00Z",
+      "request_channel": "portal",
+      "request_language": "en",
+      "business_unit": "Corporate IT",
+      "country": "Switzerland",
+      "category_l1": "IT",
+      "category_l2": "Hardware - Laptops",
+      "request_text": "We need 150 enterprise laptops for the new Zurich office expansion.",
+      "quantity": 150,
+      "unit_of_measure": "units",
+      "currency": "CHF",
+      "budget_amount": 375000,
+      "required_by_date": "2026-04-18",
+      "preferred_supplier_mentioned": "Lenovo",
+      "incumbent_supplier": "Lenovo",
+      "delivery_countries": ["Switzerland"],
+      "data_residency_constraint": false,
+      "esg_requirement": true
+    }
+  }
+}

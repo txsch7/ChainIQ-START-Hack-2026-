@@ -1,0 +1,18 @@
+meta {
+  name: Admin - Resolve Request
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{base_url}}/admin/requests/REQ-000001/resolve
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "resolved_by": "john.doe@chainiq.com",
+    "resolution_note": "Manually reviewed and approved. Confirmed Dell Technologies as preferred supplier."
+  }
+}

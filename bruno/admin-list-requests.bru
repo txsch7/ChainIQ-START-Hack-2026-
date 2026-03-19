@@ -1,0 +1,17 @@
+meta {
+  name: Admin - List Requests
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/admin/requests
+  body: none
+  auth: none
+}
+
+params:query {
+  ~status: escalated
+  ~limit: 20
+  ~offset: 0
+}
