@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Paths
@@ -60,3 +61,6 @@ POLICY_REGION_COUNTRIES: dict[str, set[str]] = {
     "APAC": APAC_COUNTRIES,
     "MEA": MEA_COUNTRIES,
 }
+
+# SAP integration feature flag (mock-only, no real HTTP calls)
+SAP_ENABLED: bool = os.environ.get("SAP_ENABLED", "false").lower() in ("true", "1", "yes")

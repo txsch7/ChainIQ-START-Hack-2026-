@@ -57,6 +57,9 @@ app.add_middleware(
 
 app.include_router(admin_router)
 
+from app.routers.sap import router as sap_router
+app.include_router(sap_router)
+
 
 # ------------------------------------------------------------------ #
 # Routes
