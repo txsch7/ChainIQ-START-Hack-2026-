@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 # Paths
-DATA_DIR = Path(__file__).parent.parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent / "data"
 
 # FX Rates (static, logged per request for reproducibility)
 FX_RATES: dict[str, float] = {
