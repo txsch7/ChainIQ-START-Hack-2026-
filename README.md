@@ -1,3 +1,5 @@
+> ## tl;dr: [**Live App → SourceChain (try it yourself)**](https://kind-tree-083bc7003.4.azurestaticapps.net/dashboard)
+
 # Audit-Ready Autonomous Sourcing Agent
 Hackathon Dataset
 
