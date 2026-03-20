@@ -1,0 +1,43 @@
+meta {
+  name: Pipeline Run
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/pipeline/run
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "request_id": "REQ-001",
+    "created_at": "2026-03-19T10:00:00Z",
+    "request_channel": "portal",
+    "request_language": "en",
+    "business_unit": "IT",
+    "country": "CH",
+    "site": "Zurich",
+    "requester_id": "user-123",
+    "requester_role": "employee",
+    "submitted_for_id": "user-456",
+    "category_l1": "IT Hardware",
+    "category_l2": "Laptops",
+    "title": "New laptops for dev team",
+    "request_text": "We need 10 new laptops for the development team. Preferably Dell or Lenovo with 32GB RAM.",
+    "currency": "CHF",
+    "budget_amount": 25000.00,
+    "quantity": 10,
+    "unit_of_measure": "units",
+    "required_by_date": "2026-04-30",
+    "preferred_supplier_mentioned": "Dell",
+    "incumbent_supplier": null,
+    "contract_type_requested": "spot",
+    "delivery_countries": ["CH"],
+    "data_residency_constraint": false,
+    "esg_requirement": true,
+    "status": "submitted",
+    "scenario_tags": ["it-hardware", "bulk-purchase"]
+  }
+}
